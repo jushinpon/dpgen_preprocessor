@@ -1,0 +1,66 @@
+&CONTROL
+calculation = "relax"
+nstep          = 100
+etot_conv_thr = 1.0d-5
+forc_conv_thr = 1.0d-4
+pseudo_dir = '/opt/QEpot/SSSP_precision_pseudos/'
+/
+!controlend
+
+&SYSTEM
+occupations = "smearing"
+nat = 4
+smearing = "gaussian"
+ntyp = 1
+ibrav = 0
+ecutwfc = 30
+ecutrho = 240
+nosym = .TRUE.
+degauss = 1.00000e-02
+nspin = 2
+starting_magnetization(1) =  2.00000e-01
+!systemend
+/
+
+&ELECTRONS
+startingwfc = "atomic+random"
+mixing_beta = 2.0000e-01
+mixing_mode = "plain"
+!mixing_ndim = 4
+electron_maxstep = 1000
+conv_thr = 1.00000e-8
+startingpot = "atomic"
+!diagonalization = "cg"
+/
+!electronsend
+
+
+&IONS
+ion_dynamics = "bfgs"
+!ion_temperature = "rescaling"
+!tempw = 0
+/
+!ionsend
+
+&CELL
+press_conv_thr = 0.1
+cell_dynamics = "bfgs"
+cell_dofree = "xyz"
+!press = 0
+/
+!cellend
+
+K_POINTS {automatic}
+21 21 21 0 0 0
+ATOMIC_SPECIES
+Al  26.981539  Al.pbe-n-kjpaw_psl.1.0.0.UPF
+ATOMIC_POSITIONS {angstrom}
+Al 2.023 2.023 0
+Al 2.023 0 2.023
+Al 0 2.023 2.023
+Al 0 0 0
+CELL_PARAMETERS {angstrom}
+4.046 0 0
+0 4.046 0
+0 0 4.046
+!End

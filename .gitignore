@@ -1,0 +1,5 @@
+*.log
+nohup.out
+*/output
+*.txt
+test*.pl

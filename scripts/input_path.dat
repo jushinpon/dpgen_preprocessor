@@ -1,0 +1,7 @@
+#the following is sout path, and you also need to set QE calculation type in system_setting.pm 
+#!!the following is for relax
+#/home/jsp/dpgen_preprocessor/examples/Al_relax/Al.sout
+#!!the following is for vc-relax
+#/home/jsp/dpgen_preprocessor/initial/Al25Mo15Nb15Ta16Ti10Zr23/Al25Mo15Nb15Ta16Ti10Zr23.sout
+#!!the following is for scf
+/home/jsp/dpgen_preprocessor/examples/Al_scf/lmp_500-dft.sout
