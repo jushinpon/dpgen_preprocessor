@@ -23,7 +23,6 @@ my @natom = `cat $input_file|sed -n '/number of atoms\\/cell/p'|awk '{print \$5}
 my $natom = $natom[0];#must use array for `` output in Perl
 chomp $natom;#atom number for data file
 #print "\$natom:$natom\n";
-print "test 3\n";
 die "You don't get the Atom Number in the DFT sout file, $input_file!!!\n" unless($natom);
 #check qe input
 chomp $input_file;
@@ -56,7 +55,6 @@ $types =~ s/^\s+|\s+$//;
 my @types = split (/\s+/,$types);
 my %id2type;#atom id to its element type id
 my %typeNo;
-print "test 2\n";
 
 for (0..$#types){
     chomp;
@@ -95,7 +93,6 @@ else{
     die "The vc-relax or relax in $input_file hasn't done (no 'End of BFGS Geometry Optimization')! 
     You need to do vc-relax with a larger nstep value or drop this case by modifying all_setting.pm!\n" unless ($temp);
 }
-print "test 1\n";
 #get box information for lammps
 my @box;
 if($cal_type eq "scf"){

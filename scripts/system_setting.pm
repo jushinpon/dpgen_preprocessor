@@ -22,6 +22,7 @@ my %deform = (
     shape => ["alpha",5.0,"beta",5.0,"gamma",5.0]#angle range for random change
 ); 
 my %sys_para = (
+    shape_deform => "yes",#yes if you want to change box shape
     rand_range => 0.2,#range for random shift of each atom
     scale_No => 3,#total number of generated structures for a scale case (should be x2 for negative+positive)
     #shape_No => 7,#total number of generated structures for a case changing the cell shape

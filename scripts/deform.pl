@@ -78,7 +78,20 @@ for my $dtype (@deform){#loop over all deform types
            my $ref_len = '$'."$ax"."_ref";
            my $scale = $axis{$ax}->[$k];
            my $adjusted = eval($ref_len) * $scale;#get the value of a symbol
-           system("sed -i -e \"s|$keyword.*|$keyword  $adjusted|g\" $cif_ref");
+           system("sed -i -e \"s|$keyword.*|$keyword  $adjusted|\" $cif_ref");
+        }
+        if($sys_para_hr->{shape_deform} eq "yes"){#change box shape
+           my $alpha_range = $deform_hr->{shape}->[1]; 
+           my $alpha_adjusted = $alpha_ref + (2.0 * rand() - 1.0)*$alpha_range;
+           system("sed -i -e \"s|_cell_angle_alpha.*|_cell_angle_alpha  $alpha_adjusted|\" $cif_ref");
+
+           my $beta_range = $deform_hr->{shape}->[3]; 
+           my $beta_adjusted = $beta_ref + (2.0 * rand() - 1.0)*$beta_range;
+           system("sed -i -e \"s|_cell_angle_beta.*|_cell_angle_beta  $beta_adjusted|\" $cif_ref");
+
+           my $gamma_range = $deform_hr->{shape}->[5]; 
+           my $gamma_adjusted = $gamma_ref + (2.0 * rand() - 1.0)*$gamma_range;
+           system("sed -i -e \"s|_cell_angle_gamma.*|_cell_angle_gamma  $gamma_adjusted|\" $cif_ref");
         }
         my $output_folder = $sys_para_hr->{output_folder};
         system("atomsk $cif_ref -disturb $sys_para_hr->{rand_range} -wrap $output_folder/$dtype-$prefix.lmp");
