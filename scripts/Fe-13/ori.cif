@@ -1,0 +1,38 @@
+_audit_creation_date      'June 22, 2022'
+_audit_creation_method    'Draft CIF file generated with Atomsk'
+ 
+_chemical_name_common             ?
+_chemical_melting_point           ?
+_chemical_formula_iupac           'H'
+_chemical_formula_moiety          'H'
+_chemical_formula_sum             'H'
+_chemical_formula_weight          1.008
+_chemical_compound_source         ?
+_chemical_absolute_configuration  ?
+_exptl_crystal_description        'EDIT-ENTRY'
+_diffrn_measurement_device_type   'EDIT-ENTRY'
+ 
+_space_group_IT_number            1
+_space_group_crystal_system       triclinic
+_symmetry_space_group_name_Hall   'P 1'
+_symmetry_space_group_name_H-M    'P 1'
+ 
+loop_
+_space_group_symop_operation_xyz
+'+x,+y,+z'
+ 
+_cell_length_a  2.566095
+_cell_length_b  2.56599
+_cell_length_c  2.56599
+_cell_angle_alpha  110.077580508498
+_cell_angle_beta  107.005341506854
+_cell_angle_gamma  104.617665516926
+_cell_volume                      8.6500
+ 
+loop_
+ _atom_site_label
+ _atom_site_type_symbol
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+H1  H  0.000000  0.000000  0.000000

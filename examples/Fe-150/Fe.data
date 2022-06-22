@@ -1,0 +1,16 @@
+LAMMPS data file via write_data, version 10 Mar 2021, timestep = 0
+1 atoms
+1 atom types
+1 atoms
+1 atom types
+0.0 2.56890737138401 xlo xhi
+0.0 2.22481087870007 ylo yhi
+0.0 1.32722469799255 zlo zhi
+1.28440383152289 2.0259762572836 0.856295665430813 xy xz yz
+
+Masses
+
+1 55.84500
+Atoms
+
+1 1	0.0000000000        0.0000000000        0.0000000000

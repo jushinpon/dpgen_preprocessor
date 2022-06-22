@@ -50,7 +50,7 @@ my $cal_type = $1;
 die "no calculation type in  $QEinput\n" unless($cal_type);
 
 #check types
-my $types = `cat $dir/elements.dat`;
+my $types = `grep -v "#" $dir/elements.dat`;
 $types =~ s/^\s+|\s+$//;
 my @types = split (/\s+/,$types);
 my %id2type;#atom id to its element type id

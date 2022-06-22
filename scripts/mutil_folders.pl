@@ -7,7 +7,14 @@ use strict;
 use warnings;
 use Cwd;
 
-my $source_folder = "/home/jsp/dp_prprocessor/dpgen_preprocessor/examples";#all cases you want to work on
+#clean old folders first
+my @temp = `ls`;
+chomp @temp;
+for (@temp){
+    if(-d $_){print "$_\n";`rm -rf $_`;}
+}
+
+my $source_folder = "/home/jsp/ben/dpgen_preprocessor/examples/";#all cases you want to work on
 #input_path.dat
 my @files = `find $source_folder -type f -name "*.sout"`;#sout or other types`;
 chomp @files;
@@ -20,15 +27,21 @@ for my $f (@files){
     my $base = `basename $f`;
     chomp $base;
     $base =~ s/^\s+|\s+$//;
-    print "basename: $base\n";
-    $base =~ /(.*)\.\w+/;
-    my $pre_in = $1;
+    print "basename: $base\n";  
+    
     my $dir = `dirname $f`;#get path
+    chomp $dir;
     print "dirname: $dir\n";
+
+    my $rebase = `basename $dir`;
+    chomp $rebase;
+    $rebase =~ s/^\s+|\s+$//;
+    print "rebasename: $rebase\n";
+
     system("perl ./main.pl");
     sleep(1);
 
-    system("rm -rf $pre_in");
-    system("mv output $pre_in");
+    system("rm -rf $rebase");
+    system("mv output $rebase");
 
 }

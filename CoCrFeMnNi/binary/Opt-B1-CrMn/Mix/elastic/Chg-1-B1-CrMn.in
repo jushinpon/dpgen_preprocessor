@@ -1,0 +1,68 @@
+&CONTROL
+calculation = "relax"
+nstep = 100
+tprnfor = .TRUE. 
+tstress = .TRUE. 
+etot_conv_thr = 1.0d-5
+forc_conv_thr = 1.0d-4
+disk_io = 'none'
+pseudo_dir = '/opt/QEpot/SSSP_efficiency_pseudos/'
+/
+!controlend
+
+&SYSTEM
+occupations = "smearing"
+nat = 8
+smearing = "gaussian"
+ntyp = 2
+ibrav = 0
+ecutwfc = 90
+ecutrho = 1080
+nosym = .TRUE.
+degauss = 1.00000e-02
+nspin = 2
+starting_magnetization(2) = 0.000
+starting_magnetization(1) = -0.000
+!systemend
+/
+
+&ELECTRONS
+startingwfc = "atomic+random"
+mixing_beta = 2.0000e-01
+mixing_mode = "plain"
+!mixing_ndim = 4
+electron_maxstep = 1000
+conv_thr = 1.00000e-8
+startingpot = "atomic"
+!diagonalization = "cg"
+/
+!electronsend
+
+
+&IONS
+ion_dynamics = "bfgs"
+!ion_temperature = "rescaling"
+!tempw = 0
+/
+!ionsend
+!cellend
+
+K_POINTS {automatic}
+6 6 6 0 0 0
+ATOMIC_SPECIES
+Mn  54.938  mn_pbe_v1.5.uspp.F.UPF
+Cr  51.9961  cr_pbe_v1.5.uspp.F.UPF
+ATOMIC_POSITIONS (angstrom)
+Mn -0.00246706452 2.30399854132 -0.007010803451
+Cr 2.29409243548 -0.00410145868 2.301089196549
+Mn -0.00246706452 -0.00410145868 2.301089196549
+Cr 2.29409243548 2.30399854132 -0.007010803451
+Mn 2.299426806452 0.002489516525 0.005651673191
+Cr -0.00246706452 2.30399854132 2.301089196549
+Mn 2.299426806452 2.310589516525 2.313751673191
+Cr -0.00246706452 -0.00410145868 -0.007010803451
+CELL_PARAMETERS (angstrom)
+4.593119 0 0
+0 4.6162 0
+0 0 4.6162
+!End

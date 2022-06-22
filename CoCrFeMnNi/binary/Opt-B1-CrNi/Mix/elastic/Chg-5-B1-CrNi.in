@@ -1,0 +1,68 @@
+&CONTROL
+calculation = "relax"
+nstep = 100
+tprnfor = .TRUE. 
+tstress = .TRUE. 
+etot_conv_thr = 1.0d-5
+forc_conv_thr = 1.0d-4
+disk_io = 'none'
+pseudo_dir = '/opt/QEpot/SSSP_efficiency_pseudos/'
+/
+!controlend
+
+&SYSTEM
+occupations = "smearing"
+nat = 8
+smearing = "gaussian"
+ntyp = 2
+ibrav = 0
+ecutwfc = 90
+ecutrho = 1080
+nosym = .TRUE.
+degauss = 1.00000e-02
+nspin = 2
+starting_magnetization(2) = 0.000
+starting_magnetization(1) = 0.000
+!systemend
+/
+
+&ELECTRONS
+startingwfc = "atomic+random"
+mixing_beta = 2.0000e-01
+mixing_mode = "plain"
+!mixing_ndim = 4
+electron_maxstep = 1000
+conv_thr = 1.00000e-8
+startingpot = "atomic"
+!diagonalization = "cg"
+/
+!electronsend
+
+
+&IONS
+ion_dynamics = "bfgs"
+!ion_temperature = "rescaling"
+!tempw = 0
+/
+!ionsend
+!cellend
+
+K_POINTS {automatic}
+6 6 6 0 0 0
+ATOMIC_SPECIES
+Ni  58.693  ni_pbe_v1.4.uspp.F.UPF
+Cr  51.9961  cr_pbe_v1.5.uspp.F.UPF
+ATOMIC_POSITIONS (angstrom)
+Ni -0.01899215818 2.345839430625 4.680929743358
+Cr 2.33356209182 0.004989430625 2.340079743358
+Ni -0.00728790818 4.686689430625 2.340079743358
+Cr 2.34526634182 2.345839430625 -0.000770256642
+Ni 2.333202825752 0.002963079427 -0.001112150724
+Cr -0.00728790818 2.345839430625 2.340079743358
+Ni 2.321498575752 2.343813079427 2.339737849276
+Cr 0.00441634182 0.004989430625 -0.000770256642
+CELL_PARAMETERS (angstrom)
+4.6817 0 0
+0.000000000000 4.6817 0
+-0.023408500000 0.000000000000 4.6817
+!End
