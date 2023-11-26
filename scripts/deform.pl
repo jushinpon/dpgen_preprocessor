@@ -94,8 +94,8 @@ for my $dtype (@deform){#loop over all deform types
            system("sed -i -e \"s|_cell_angle_gamma.*|_cell_angle_gamma  $gamma_adjusted|\" $cif_ref");
         }
         my $output_folder = $sys_para_hr->{output_folder};
-        `atomsk $cif_ref -disturb $sys_para_hr->{rand_range} -wrap -unskew $output_folder/$dtype-$prefix.lmp`;
-        #system("atomsk $cif_ref -disturb $sys_para_hr->{rand_range} -wrap -unskew $output_folder/$dtype-$prefix.lmp");
+       `atomsk $cif_ref -disturb $sys_para_hr->{rand_range} -wrap -unskew $output_folder/$dtype-$prefix.lmp`;
+       # system("atomsk $cif_ref -disturb $sys_para_hr->{rand_range} -wrap -unskew $output_folder/$dtype-$prefix.lmp");
         `mv $output_folder/$dtype-$prefix.lmp $output_folder/$dtype-$prefix.data`;
     }
 }

@@ -14,9 +14,9 @@ for (@temp){
     if(-d $_){print "$_\n";`rm -rf $_`;}
 }
 
-my $source_folder = "/home/jsp/ben/dpgen_preprocessor/examples/";#all cases you want to work on
+my $source_folder = "/home/jsp1/dpgen_preprocessor/examples/Al2O3_1000442";#all cases you want to work on
 #input_path.dat
-my @files = `find $source_folder -type f -name "*.sout"`;#sout or other types`;
+my @files = `find $source_folder -type f -name "*.in"`;#keep element info`;
 chomp @files;
 for my $f (@files){ 
 
@@ -33,11 +33,10 @@ for my $f (@files){
     chomp $dir;
     print "dirname: $dir\n";
 
-    my $rebase = `basename $dir`;
+    my $rebase = `basename $dir`;#the upper parent folder name
     chomp $rebase;
     $rebase =~ s/^\s+|\s+$//;
     print "rebasename: $rebase\n";
-
     system("perl ./main.pl");
     sleep(1);
 
